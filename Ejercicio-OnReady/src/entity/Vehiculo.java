@@ -7,12 +7,14 @@ public abstract class Vehiculo implements IVehiculo, Comparable<Vehiculo> {
 	private String marca;
 	private String modelo;
 	private double precio;
+	private DecimalFormat formatoPrecio;
 
 	public Vehiculo() {
 
 	}
 
 	public Vehiculo(String marca, String modelo, double precio) {
+		formatoPrecio = new DecimalFormat("###,###.00");
 		this.marca = marca;
 		this.modelo = modelo;
 		this.precio = precio;
@@ -51,7 +53,6 @@ public abstract class Vehiculo implements IVehiculo, Comparable<Vehiculo> {
 	}
 
 	public String muestraPrecio() {
-		DecimalFormat formatoPrecio = new DecimalFormat("###,###.00");
 		return "Precio: $" + formatoPrecio.format(getPrecio());
 	}
 
@@ -60,7 +61,8 @@ public abstract class Vehiculo implements IVehiculo, Comparable<Vehiculo> {
 	}
 
 	public String descripcion() {
-		return getMarca() + " " + getModelo() + " $" + getPrecio();
+		
+		return getMarca() + " " + getModelo() + " $" + formatoPrecio.format(getPrecio());
 	}
 
 	public String miniDescripcion() {

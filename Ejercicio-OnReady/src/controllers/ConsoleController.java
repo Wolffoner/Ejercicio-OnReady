@@ -10,9 +10,10 @@ import entity.Vehiculo;
 
 public class ConsoleController {
 
-	private ArrayList<Vehiculo> lista = new ArrayList<>();
+	private ArrayList<Vehiculo> lista;
 
 	public void run() {
+		lista = new ArrayList<>();
 		Auto auto1 = new Auto("Peugeot", "206", "4", 200000);
 		lista.add(auto1);
 		Moto moto1 = new Moto("Honda", "Titan", "125c", 60000);
@@ -38,26 +39,26 @@ public class ConsoleController {
 	public void vehiculoMasBarato() {
 		Collections.sort(lista);
 		String vehiculoBarato = lista.get((lista.size() - 1)).miniDescripcion();
-		System.out.println("Vehiculo mas barato: " + vehiculoBarato);
+		System.out.println("Vehículo más barato: " + vehiculoBarato);
 	}
 
 	public void vehiculoMasCaro() {
 		Collections.sort(lista);
 		String vehiculoCaro = lista.get(0).miniDescripcion();
-		System.out.println("Vehiculo Mas Caro: " + vehiculoCaro);
+		System.out.println("Vehículo más Caro: " + vehiculoCaro);
 	}
 
 	public void vehiculoLetraY() {
 		for (Vehiculo v : lista) {
 			if (v.getMarca().contains("Y")) {
-				System.out.println("Vehiculo que contiene la letra 'Y': " + v.descripcion());
+				System.out.println("Vehículo que contiene en el modelo la letra 'Y': " + v.descripcion());
 			}
 		}
 	}
 
 	public void imprimirOrdenado() {
 		Collections.sort(lista);
-		System.out.println("Vehiculos ordenados de mayor a menor:");
+		System.out.println("Vehículos ordenados por precio de mayor a menor:");
 		for (Vehiculo v : lista) {
 			System.out.println(v.getMarca() + " " + v.getModelo());
 		}
